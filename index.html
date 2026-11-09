@@ -35,7 +35,7 @@
 
      body {
        margin: 0;
-       font-family: "Segoe UI", Calibri, Arial sans-serif;
+       font-family: "Segoe UI", Calibri, Arial, sans-serif;
        line-height: 1.7;
        color: var(--text);
        position: relative;     /* lets layers below cover entire page */
@@ -46,7 +46,7 @@
          #0a1a45 50%,
          #2f6fd0 75%,
          #8fd0ff 92%,
-         #cffeeff 100%);
+         #cfeeff 100%);
      }
 
     /* Night sky has a 2nd gradient on top. only for night mode, day mode its invisible*/
@@ -64,7 +64,7 @@
       opacity: 0%;
       transition: opacity 0.8s ease; 
     }
-    [data-theme="night"] body::before { opacity:1; }
+    [data-theme="night"] body::before { opacity: 1; }
       
     </style>
   </head>
