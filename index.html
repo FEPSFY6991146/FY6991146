@@ -67,7 +67,7 @@
     [data-theme="night"] body::before { opacity: 1; }
 
     #stars {
-      position: absolute; index: 0; /* covers whole page */
+      position: absolute; inset: 0; /* covers whole page */
       z-index: -1;
       overflow: hidden;
       pointer-events: none; 
@@ -75,9 +75,9 @@
       -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 70%);
       mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 70%);
     }
-    [data-theme="night"] #stars 
+    [data-theme="night"] #stars {
       -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
-      mask-image: linear-gradient( to bottom, #000 0%, #000 70%, transparent 100%)
+      mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%)
     }
     .star {
       position: absolute;
@@ -148,7 +148,7 @@
     for (let i = 0; i < 250; i++) {
       const s = document.createElement('span');
       s.className = 'star';
-      s.style.width = s.style.height = soze + 'px';
+      s.style.width = s.style.height = size + 'px';
       s.style.left = Math.random() * 100 + '%';
       s.style.top = Math.random() * 100 + '%';
       s.style.animationDelay =  Math.random() * 3 + 's';
