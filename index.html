@@ -154,6 +154,7 @@
     const starBox =  document.getElementById('stars');
     for (let i = 0; i < 250; i++) {
       const s = document.createElement('span');
+      const size = Math.random() * 2 + 1;
       s.className = 'star';
       s.style.width = s.style.height = size + 'px';
       s.style.left = Math.random() * 100 + '%';
