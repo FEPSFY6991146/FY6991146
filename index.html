@@ -86,14 +86,6 @@
       animation: twinkle 3s ease-in-out infinite alternate;
     }
     @keyframes twinkle { from { opacity: 0.2; } to { opacity: 1; } }
-
-     if Math.random = < 0.1 
-      .star {
-       position: absolute;
-       background: blue;
-       size: 4px;
-       colour: #0000FF;
-       animation: twinkle 3s ease-in-out infinite alternate;
       }
     </style>
   </head>
@@ -171,6 +163,11 @@
       s.style.animationDelay =  Math.random() * 3 + 's';
       starBox.appendChild(s);
     }
+
+    if Math.random () < 0.1 
+    s.style.width = s.style.height = size + '4px';
+    element.style.color = "#0000ff";
+     
   </script>
 </body>
 </html>
