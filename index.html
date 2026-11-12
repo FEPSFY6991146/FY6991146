@@ -223,7 +223,7 @@
     const toggle = document.getElementById('themeToggle');
 
     function setTheme(theme) {
-      document.doocumentElement.setAttribute('data-theme', theme); // <html data-theme="...">
+      document.documentElement.setAttribute('data-theme', theme); // <html data-theme="...">
       toggle.checked = (theme === 'night');  //keeps switch in sync
       try{ localStorage.setItem('theme', theme); } catch (e) {}
     }
