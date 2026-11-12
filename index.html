@@ -227,6 +227,13 @@
       toggle.checked = (theme === 'night');  //keeps switch in sync
       try{ localStorage.setItem('theme', theme); } catch (e) {}
     }
+
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    const deviceIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(saved || (deviceIsDark ? 'night' : 'day'));
+
+    toggle.addEventListener('change', () => setTheme(toggle.checked ? 'night' : 'day'));
     
 
     
