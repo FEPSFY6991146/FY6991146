@@ -2,7 +2,7 @@
 <html lang = "en" data-theme="day">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>How the concept of space elevators has changed through the discovery of nanotubes, and why this discovery has yet to make them non-fictitious.</title>
     
     <style>
@@ -28,9 +28,15 @@
       * { box-sizing: border-box; }  /* padding doesnt make boxes wider than screen */
       html { scroll-behavior: smooth; }
 
-      --heading: day
-      --heading: night
-
+      :root {
+       ...your other day colours...
+       --heading: #1f3a6b;
+      }
+      [data-theme="night"] {
+        ...your other night colours...
+        --heading: #cfe0ff;
+      }
+      
       img { max-width: 100%; height: auto; display: block; } /* images dont overflow on phones */
 
      body {
@@ -86,7 +92,7 @@
       animation: twinkle 3s ease-in-out infinite alternate;
     }
     @keyframes twinkle { from { opacity: 0.2; } to { opacity: 1; } }
-      }
+      
       .topbar {
         position: fixed; top: 0; left: 0; right: 0;
         z-index: 50;
@@ -95,16 +101,16 @@
         justify-content: space-between;
         padding: 0.6rem 1rem;
         color: white;
-        background: rgba(0, 0, 0, 0, 0.35);
+        background: rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur (10px);
       }
-      .brand { font-weight: 600; letter-spacing: 008em; text-transform: uppercase; font-size: 0.85rem; }
+      .brand { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
       #menuBtn {
         font: inherit; color: white; cursor: pointer;
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 999px; padding: 0.35 rem 0.9rem;
+        border-radius: 999px; padding: 0.35rem 0.9rem;
       }
 
       .switch { position: relative; display: inline-block; width: 64px; height: 32px; }
@@ -124,10 +130,10 @@
         transition: transform 0.4s, background 0.4s;
       }
       .switch input:checked + .track { background: #1b1f3b; } /*clicked night mode*/
-      .switch input: checked + .track::before {
+      .switch input:checked + .track::before {
         content: "\1F319"; /* moon emoji */
         background: #2c3160;
-        transform: tanslateX(32px); /*slides it to the right*/
+        transform: translateX(32px); /*slides it to the right*/
       }
 
       .hero {
@@ -141,11 +147,11 @@
       .hero .logo { max-width: min(500px, 90%); margin: 0 auto 2rem;}
       .hero h1 {
         font-size: clamp(2rem, 5vw + 1rem, 4.2rem); /*it grows with the screen*/
-        line-height: 1.1; margin 0 auto 1rem;
+        line-height: 1.1; margin: 0 auto 1rem;
         max-width: 16ch; /* ch = width of 1 character*/
         text-shadow: 0 4px 30px rgba(0,0,0,.6);
       }
-      .hero p { font-size: clamp(1rem, 1vw + 8rem, 1.3rem); max-width: 45ch; margin: 0 auto; opacity: .85; }
+      .hero p { font-size: clamp(1rem, 1vw + .8rem, 1.3rem); max-width: 45ch; margin: 0 auto; opacity: .85; }
       .scroll-hint {
         display: inline-block; margin-top: 3rem;
         color: white; text-decoration: none; opacity: .8;
@@ -153,18 +159,20 @@
       }
       @keyframes bob { 50% {transform: translateY(8px); } }
 
-      .journey { max-width: 1150px; margin: 0; padding: 4rem 1.25rem 2rem; }
+      .journey { max-width: 1150px; margin: 0 auto; padding: 4rem 1.25rem 2rem; }
 
       .station {
         position: relative; /* so dot below can be placed on it*/
-        width: calc(50% - 60%); /* 1/2 page (minus cable room) */
+        width: calc(50% - 60%px); /* 1/2 page (minus cable room) */
         margin-bottom: 30vh; /* big gap - feels like distance has been travelled*/
         padding: 1.75rem 2rem;
-        background: var (--glass-border);
+        background: var (--glass);
+        color: var(--text);
+        border: 1px solid var(--glass-border);
         border-radius: 20px; /*blurring what is behind via frosted glass */
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 20px 50px rgba(0,0,0,.25)
+        box-shadow: 0 20px 50px rgba(0,0,0,.25);
         transition: background .6s, color .6s;
         scroll-margin-top: 90px; /* menu links stop below top bar*/
       }
@@ -185,7 +193,7 @@
         letter-spacing: 0.1em; text-transform: uppercase;
         color: var(--accent); margin-bottom: 0.3rem;
       }
-      .station h2 { margin: 0 0 0.75rem; font-size: clamp(1.4rem, 1.5vw +1rem, 2rem); line-height: 1.2; }
+      .station h2 { margin: 0 0 0.75rem; font-size: clamp(1.4rem, 1.5vw + 1rem, 2rem); line-height: 1.2; }
 
       figure {margin: 1rem 0; }
       figure img { width: 260px; max-width: 100%; border-radius: 12px; cursor: zoom-in; }
