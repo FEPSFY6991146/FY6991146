@@ -31,9 +31,7 @@
       :root {
        ...your other day colours...
        --heading: #1f3a6b;
-      }
-      [data-theme="night"] {
-        ...your other night colours...
+     
         --heading: #cfe0ff;
       }
       
@@ -103,7 +101,7 @@
         color: white;
         background: rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur (10px);
+        -webkit-backdrop-filter: blur(10px);
       }
       .brand { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
       #menuBtn {
@@ -159,14 +157,14 @@
       }
       @keyframes bob { 50% {transform: translateY(8px); } }
 
-      .journey { max-width: 1150px; margin: 0 auto; padding: 4rem 1.25rem 2rem; }
+      .journey { position: relative; max-width: 1150px; margin: 0 auto; padding: 4rem 1.25rem 2rem; }
 
       .station {
         position: relative; /* so dot below can be placed on it*/
-        width: calc(50% - 60%px); /* 1/2 page (minus cable room) */
+        width: calc(50% - 60px); /* 1/2 page (minus cable room) */
         margin-bottom: 30vh; /* big gap - feels like distance has been travelled*/
         padding: 1.75rem 2rem;
-        background: var (--glass);
+        background: var(--glass);
         color: var(--text);
         border: 1px solid var(--glass-border);
         border-radius: 20px; /*blurring what is behind via frosted glass */
@@ -338,7 +336,7 @@
 <p>The Safety and Reliability of Space Elevators: Challenges and Solutions - Diverse Daily - Babu, S. (2024). The Safety and Reliability of Space Elevators: Challenges and Solutions. [online] Diverse Daily. Available at: https://diversedaily.com/the-safety-and-reliability-of-space-elevators-challenges-and-solutions/ [Accessed 5 Nov. 2026].</p>
 </section>
 
-<div class="cable" aria-hidden="true"><div class="car"></div>
+<div class="cable" aria-hidden="true"></div> <div class="car"></div>
   
 </main>
 
