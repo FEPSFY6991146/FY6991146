@@ -198,6 +198,52 @@
       figure {margin: 1rem 0; }
       figure img { width: 260px; max-width: 100%; border-radius: 12px; cursor: zoom-in; }
       figcaption { font-size: .9rem; color: var(--muted); }
+
+     .contents {
+  max-width: 460px;
+  margin: 0 auto 4rem;               /* centred, with space below */
+  padding: 1.25rem 1.5rem;
+  background: var(--glass);          /* same glass as the cards */
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.contents h2 { margin-top: 0; }
+.contents table { width: 100%; border-collapse: collapse; }
+.contents td { padding: .5rem .25rem; border-bottom: 1px solid rgba(127,127,127,.25); }
+.contents tr:last-child td { border-bottom: none; }   /* no line under the last row */
+.contents a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.contents td:last-child { text-align: right; color: var(--muted); font-size: .85rem; }
+
+  .cable {
+  position: absolute;               /* placed inside .journey, out of the normal flow */
+  top: 0; bottom: 0;                /* stretches the full height of .journey */
+  left: 50%; transform: translateX(-50%);  /* dead centre */
+  width: 4px;
+  background: linear-gradient(to bottom, rgba(141,184,255,.9), rgba(255,255,255,.5));
+  border-radius: 4px;
+}
+.car {
+  position: sticky;                 /* scrolls normally, then sticks... */
+  top: 50vh;                        /* ...halfway down the screen */
+  width: 26px; height: 40px;
+  margin-left: -11px;               /* (26 - 4) / 2: centres it on the 4px cable */
+  background: linear-gradient(#ffffff, #b9c7e6);
+  border-radius: 6px;
+  box-shadow: 0 0 18px rgba(141,184,255,.9);   /* glow */
+}
+ .station.space {
+  --glass: rgba(14, 17, 32, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text: #e8eaf2;
+  --muted: #a2a7bd;
+  --accent: #8db8ff;
+}
+
+  .site-footer { text-align: center; color: var(--text); padding: 2rem 1rem 3rem; font-size: .9rem; }
+.site-footer span { font-weight: 700; }
       
     </style>
   </head>
@@ -220,6 +266,19 @@
         <a class="scroll-hint" href="#abstract">Begin descent ↓</a>
       </div>
     </section>
+
+    <nav class="contents">
+  <h2>Contents</h2>
+  <table>
+    <tr><td><a href="#abstract">Abstract</a></td><td>35,786 km</td></tr>
+    <tr><td><a href="#introduction">Introduction</a></td><td>30,000 km</td></tr>
+    <tr><td><a href="#space-elevators">Space elevators</a></td><td>20,000 km</td></tr>
+    <tr><td><a href="#advantages">Advantages and disadvantages</a></td><td>10,000 km</td></tr>
+    <tr><td><a href="#nanotubes">Carbon nanotubes</a></td><td>1,000 km</td></tr>
+    <tr><td><a href="#why-not">Why has it not been achieved yet?</a></td><td>100 km</td></tr>
+    <tr><td><a href="#references">References</a></td><td>0 km</td></tr>
+  </table>
+</nav>
       
 <main class="journey">
     
@@ -279,8 +338,15 @@
 <p>The Safety and Reliability of Space Elevators: Challenges and Solutions - Diverse Daily - Babu, S. (2024). The Safety and Reliability of Space Elevators: Challenges and Solutions. [online] Diverse Daily. Available at: https://diversedaily.com/the-safety-and-reliability-of-space-elevators-challenges-and-solutions/ [Accessed 5 Nov. 2026].</p>
 </section>
 
+<div class="cable" aria-hidden="true"><div class="car"></div>
+  
 </main>
 
+<footer class="site-footer">
+  <p>Word count: <span id="wordCount">0</span> words · About <span id="readTime">0</span> min read</p>
+  <p>Last updated: <time id="updated"></time></p>
+</footer>
+    
   <script>
     const starBox =  document.getElementById('stars');
     for (let i = 0; i < 250; i++) {
@@ -314,6 +380,18 @@
 
     toggle.addEventListener('change', () => setTheme(toggle.checked ? 'night' : 'day'));
 
+    // Word count: add up the words in every paragraph except the References
+let words = 0;
+document.querySelectorAll('.station:not(#references) p').forEach(p => {
+  words += p.textContent.trim().split(/\s+/).length;
+});
+document.getElementById('wordCount').textContent = words.toLocaleString('en-GB');
+document.getElementById('readTime').textContent = Math.ceil(words / 200);  // ~200 words a minute
+
+// Last updated: when this file was last saved
+const updated = new Date(document.lastModified);
+document.getElementById('updated').textContent =
+  updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     
   </script>
 </body>
