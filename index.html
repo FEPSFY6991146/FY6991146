@@ -129,6 +129,29 @@
         background: #2c3160;
         transform: tanslateX(32px); /*slides it to the right*/
       }
+
+      .hero {
+        min-height: 100vh; /* vh = % of screen height, so 100vh= one full screen */
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 6rem 1.5rem 4rem;
+        color: white;
+      }
+      .hero .logo { max-width: min(500px, 90%); margin: 0 auto 2rem;}
+      .hero h1 {
+        font-size: clamp(2rem, 5vw + 1rem, 4.2rem); /*it grows with the screen*/
+        line-height: 1.1; margin 0 auto 1rem;
+        max-width: 16ch; /* ch = width of 1 character*/
+        text-shadow: 0 4px 30px rgba(0,0,0,.6);
+      }
+      .hero p { font-size: clamp(1rem, 1vw + 8rem, 1.3rem); max-width: 45ch; margin: 0 auto; opacity: .85; }
+      .scroll-hint {
+        display: inline-block; margin-top: 3rem;
+        color: white; text-decoration: none; opacity: .8;
+        animation: bob 2s ease-in-out infinite;
+      }
+      @keyframes bob { 50% {transform: translateY(8px); } }
     </style>
   </head>
   <body>
@@ -141,6 +164,15 @@
         <span class="track"></span>
       </label>
     </header>
+    
+    <section class="hero">
+      <div>
+        <img class="logo" src="WebBanner2026.png" alt="Surrey university logo">
+        <h1>The </h1>
+        <p>The </p>
+        <a class="scroll-hint" href="#abstract">Begin descent ↓</a>
+      </div>
+    </section>
       
 <main class="journey">
     
@@ -234,7 +266,6 @@
     setTheme(saved || (deviceIsDark ? 'night' : 'day'));
 
     toggle.addEventListener('change', () => setTheme(toggle.checked ? 'night' : 'day'));
-    
 
     
   </script>
