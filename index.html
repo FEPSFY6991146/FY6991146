@@ -152,6 +152,45 @@
         animation: bob 2s ease-in-out infinite;
       }
       @keyframes bob { 50% {transform: translateY(8px); } }
+
+      .journey { max-width: 1150px; margin: 0; padding: 4rem 1.25rem 2rem; }
+
+      .station {
+        position: relative; /* so dot below can be placed on it*/
+        width: calc(50% - 60%); /* 1/2 page (minus cable room) */
+        margin-bottom: 30vh; /* big gap - feels like distance has been travelled*/
+        padding: 1.75rem 2rem;
+        background: var (--glass-border);
+        border-radius: 20px; /*blurring what is behind via frosted glass */
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 20px 50px rgba(0,0,0,.25)
+        transition: background .6s, color .6s;
+        scroll-margin-top: 90px; /* menu links stop below top bar*/
+      }
+      .station:nth-child(even) { margin-left: auto; } /* 2nd, 4th, 6th... go right */
+
+      /*dot joining each card to cable*/
+      .station::before {
+        content: ""; position: absolute; top: 2.2rem;
+        width: 16px; height: 16px; border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 5px rgba(141,184,255,.3); /*soft glow ring*/
+        right: -68px; /*odd cards: dot on their right*/
+      }
+      .station:nth-child(even)::before { right: auto; left: -68px; } /*even on left*/
+
+      .badge {
+        display: inline-block; font-size: 0.75rem; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--accent); margin-bottom: 0.3rem;
+      }
+      .station h2 { margin: 0 0 0.75rem; font-size: clamp(1.4rem, 1.5vw +1rem, 2rem); line-height: 1.2; }
+
+      figure {margin: 1rem 0; }
+      figure img { width: 260px; max-width: 100%; border-radius: 12px; cursor: zoom-in; }
+      figcaption { font-size: .9rem; color: var(--muted); }
+      
     </style>
   </head>
   <body>
