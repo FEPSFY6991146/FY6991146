@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en" data-theme="day">
+<html lang = "en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,13 +20,6 @@
       * { box-sizing: border-box; }  /* padding doesnt make boxes wider than screen */
       html { scroll-behavior: smooth; }
 
-      :root {
-       ...your other day colours...
-       --heading: #1f3a6b;
-     
-        --heading: #cfe0ff;
-      }
-      
       img { max-width: 100%; height: auto; display: block; } /* images dont overflow on phones */
 
      body {
@@ -79,9 +72,8 @@
       position: absolute;
       background: white;
       border-radius: 50%;
-      animation: twinkle 3s ease-in-out infinite alternate;
     }
-    @keyframes twinkle { from { opacity: 0.2; } to { opacity: 1; } }
+    @keyframes twinkle { opacity: 0.2; } 
       
       .topbar {
         position: fixed; top: 0; left: 0; right: 0;
