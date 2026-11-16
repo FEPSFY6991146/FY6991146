@@ -6,15 +6,7 @@
     <title>How the concept of space elevators has changed through the discovery of nanotubes, and why this discovery has yet to make them non-fictitious.</title>
     
     <style>
-     :root {                                 /* day colours */
-       --glass: rgba(255, 255, 255, 0.82);   /* colour background */
-       --glass-border: rgba(255, 255, 255, 0.6);
-       --text: #16181d;
-       --muted: #4b5060;
-       --accent: #1f5fbf;
-       --ground-top: #4caf50;
-       --ground-bottom: #1b5e20;
-     }
+     
       [data-theme="night"] {                  /* night colours replace them */
         --glass: rgba(14, 17, 32, 0.62);
         --glass-border: rgba(255, 255, 255, 0.12);
@@ -119,21 +111,7 @@
         background: #87ceeb; border-radius: 999px;
         transition: background 0.4s;
       }
-      .switch .track::before {
-        content: "\2600\FE0F";     /*sun emoj*/
-        position: absolute; top: 3px; left: 3px;
-        width: 26px; height: 26px; border-radius: 50%;
-        background: white;
-        display: grid; place-items: center; font-size: 15px;
-        transition: transform 0.4s, background 0.4s;
-      }
-      .switch input:checked + .track { background: #1b1f3b; } /*clicked night mode*/
-      .switch input:checked + .track::before {
-        content: "\1F319"; /* moon emoji */
-        background: #2c3160;
-        transform: translateX(32px); /*slides it to the right*/
-      }
-
+  
       .hero {
         min-height: 100vh; /* vh = % of screen height, so 100vh= one full screen */
         display: grid;
