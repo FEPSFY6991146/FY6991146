@@ -7,7 +7,7 @@
     
     <style>
      
-      [data-theme="night"] {                  /* night colours replace them */
+      :root {                  /* night colours replace them */
         --glass: rgba(14, 17, 32, 0.62);
         --glass-border: rgba(255, 255, 255, 0.12);
         --text: #e8eaf2;
@@ -27,13 +27,6 @@
        color: var(--text);
        position: relative;     /* lets layers below cover entire page */
        isolation: isolate;     /* keeps layers behind content */
-       background: linear-gradient(to bottom,
-         #000000 0%,
-         #02030d 25%,
-         #0a1a45 50%,
-         #2f6fd0 75%,
-         #8fd0ff 92%,
-         #cfeeff 100%);
      }
 
     /* Night sky has a 2nd gradient on top. only for night mode, day mode its invisible*/
@@ -57,7 +50,7 @@
       pointer-events: none; 
       /* fade the stars on lower pg */
     }
-    [data-theme="night"] #stars {
+    #stars {
       -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
       mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%)
     }
